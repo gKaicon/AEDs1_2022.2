@@ -3,23 +3,27 @@
 
 using namespace std;
 
-struct Habitante{
+typedef struct Habitante
+{
     double salario;
     int idade;
     int numFilho;
     char sexo;
 };
 
-int main() {
+int main()
+{
     UINT CPAGE_UTF8 = 65001;
     UINT CPAGE_DEFAULT = GetConsoleOutputCP();
     SetConsoleOutputCP(CPAGE_UTF8);
 
-    double somaSa, somaFi, mediaSa, mediaFi, maiorSa, percMulher, qtdMulher = 0, qtdH;
-    struct Habitante h[5];
-    qtdH = 5;
+    double somaSa, somaFi, mediaSa, mediaFi, maiorSa, percMulher, qtdMulher = 0;
+    int qtdH = 5;
+    Habitante h[qtdH];
 
-    // for(int i = 0; i < qtdH; i++){
+    // for (int i = 0; i < qtdH; i++)
+    // {
+    //     cout << "Registro " << i+1 << "° \n";
     //     cout << "Informe o salário: R$ ";
     //     cin >> h[i].salario;
     //     cout << "Informe a idade: ";
@@ -29,7 +33,12 @@ int main() {
     //     cout << "Informe o sexo: ";
     //     cin >> h[i].sexo;
     // }
-    
+
+    h[0].salario = 990.0;
+    h[0].idade = 17;
+    h[0].numFilho = 0;
+    h[0].sexo = 'M';
+
     h[1].salario = 990.0;
     h[1].idade = 19;
     h[1].numFilho = 2;
@@ -55,31 +64,45 @@ int main() {
     h[5].numFilho = 2;
     h[5].sexo = 'M';
 
-    //média de salário da população
-    for(int i = 0; i < qtdH; i++){
+    // média de salário da população
+    for (int i = 0; i < qtdH; i++)
+    {
         somaSa += h[i].salario;
     }
-    mediaSa = somaSa/qtdH;
+    mediaSa = somaSa / qtdH;
 
-    //média de número de filhos da população
-    for(int i = 0; i < qtdH; i++){
+    // média de número de filhos da população
+    for (int i = 0; i < qtdH; i++)
+    {
         somaFi += h[i].numFilho;
     }
-    mediaFi = somaFi/qtdH;
-    
-    //percentual de mulheres com salário abaixo de 1000
-    for(int i = 0; i < qtdH; i++){
-        if(((h[i].sexo == 'F') || (h[i].sexo == 'f')) && (h[i].salario <= 1000)){
+    mediaFi = somaFi / qtdH;
+
+    // percentual de mulheres com salário abaixo de 1000
+    for (int i = 0; i < qtdH; i++)
+    {
+        if (((h[i].sexo == 'F') || (h[i].sexo == 'f')) && (h[i].salario <= 1000))
+        {
             qtdMulher++;
         }
     }
-    percMulher = qtdMulher * 100/qtdH;
+    percMulher = qtdMulher * 100 / qtdH;
 
-    //maior salário
-    for(int i = 0; i < qtdH; i++){
-        if(h[i].salario > maiorSa){
+    // maior salário
+    for (int i = 0; i < qtdH; i++)
+    {
+        if (h[i].salario > maiorSa)
+        {
             maiorSa = h[i].salario;
         }
+    }
+    for (int i = 0; i < qtdH; i++)
+    {
+        cout << "\nRegistro " << i + 1 << "° \n";
+        cout << "\tSalário: R$ " << h[i].salario << endl;
+        cout << "\tIdade: " << h[i].idade << endl;
+        cout << "\tQuantidade de filhos: " << h[i].numFilho << endl;
+        cout << "\tSexo: " << h[i].sexo << endl;
     }
     cout << "Média de Salário da população: R$ " << mediaSa << "\n";
     cout << "Média de números de filhos da população: " << mediaFi << "\n";
