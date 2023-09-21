@@ -15,7 +15,7 @@ int main() {
 
     filVer.open("testeLeitura.txt");
 
-    if(!filVer.is_open()){
+    if(filVer.is_open()){
         cerr << "Erro ao abrir o arquivo";
         filVer.clear();
         return -1;
@@ -23,8 +23,7 @@ int main() {
 
    while (!filVer.eof()){
         getline(filVer, texto);
-       // cout << texto << endl;
+        cout << texto << endl;
     }
-
     return 0;
 }
