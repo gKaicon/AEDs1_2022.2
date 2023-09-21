@@ -12,6 +12,7 @@ int main(){
     SetConsoleOutputCP(CPAGE_UTF8);
     srand(time(NULL));
     system("cls");
+    
     ofstream escrita;
     escrita.open("tabela.txt");
 
