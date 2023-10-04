@@ -5,26 +5,35 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     UINT CPAGE_UTF8 = 65001;
     UINT CPAGE_DEFAULT = GetConsoleOutputCP();
     SetConsoleOutputCP(CPAGE_UTF8);
-    
+
     ifstream filVer; // - vamos ler no arquivo
     string texto;
 
-    filVer.open("testeLeitura.txt");
+    filVer.open("output/testeLeitura.txt");
 
-    if(!filVer.is_open()){
+    if (filVer.is_open())
+    {
         cerr << "Erro ao abrir o arquivo";
         filVer.clear();
         return -1;
     }
-
-   while (!filVer.eof()){
-        getline(filVer, texto);
-       // cout << texto << endl;
+    int cont = 0;
+    while (!filVer.eof())
+    {
+        if (cont == 1)
+            cout << "Entrou no while";
+        else
+        {
+            // getline(filVer, texto);
+            filVer >> texto;
+            cout << texto << endl;
+            cont++;
+        }
     }
-
     return 0;
 }
