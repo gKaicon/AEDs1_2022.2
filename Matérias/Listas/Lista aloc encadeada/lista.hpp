@@ -5,20 +5,20 @@
 typedef struct TipoItem{
     int chave;
     char nome[81];
-} TipoItem;
+};
 
 typedef struct TipoElemento{
     TipoItem item;
     struct TipoElemento* prox;
-} TipoElemento;
+};
 
-typedef struct TipoElemento *Apontador;
+typedef struct TipoElemento* Apontador;
 
 typedef struct TipoLista{
     Apontador Primeiro;
     Apontador Ultimo;//Apontador para?
     int tamanho;
-} TipoLista;
+};
 
 bool listaCriada = false;
 
