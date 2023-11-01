@@ -7,12 +7,12 @@ typedef struct TipoItem{
     char nome[81];
 } TipoItem;
 
-typedef struct TipoElemento *Apontador;
-
 typedef struct TipoElemento{
     TipoItem item;
     struct TipoElemento* prox;
 } TipoElemento;
+
+typedef struct TipoElemento *Apontador;
 
 typedef struct TipoLista{
     Apontador Primeiro;
