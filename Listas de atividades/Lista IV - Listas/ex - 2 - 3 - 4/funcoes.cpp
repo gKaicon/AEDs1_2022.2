@@ -77,7 +77,7 @@ void InsereListaUltimo(TipoLista *lista, TipoItem *item){ //insere sempre após 
 
 void InsereListaAposElemento(TipoLista *lista, TipoItem *item, int id){ //insere em qualquer lugar
     Apontador aux, pAux, x;
-    bool find = false; //achou recebe false
+    bool find = false; // não achei, logo recebe false
     pAux = lista->Primeiro->prox; //o "ponteiro"
     while (pAux != NULL){// enquanto for diferente de null
         if (pAux->item.chave == id){ //quando a chave for igual ao valor digitado, a inserção será feita após ele
